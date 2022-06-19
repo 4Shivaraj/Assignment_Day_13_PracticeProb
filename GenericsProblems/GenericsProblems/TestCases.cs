@@ -18,6 +18,12 @@ namespace GenericsProblems
         public static string[] StringCase2;
         public static string[] StringCase3;
 
+        private static FindMaxNum<int> maxInt;
+        private static FindMaxNum<float> maxFloat;
+        private static FindMaxNum<string> maxString;
+       
+
+
         //Initialization
         static TestCases()
         {
@@ -30,6 +36,9 @@ namespace GenericsProblems
             StringCase1 = new string[] { "Shivaraj", "Arun", "Deepak" };
             StringCase2 = new string[] { "Pen", "Scale", "Eraser" };
             StringCase3 = new string[] { "Shravani", "Raksha", "Punya" };
+            maxInt = new(IntCase1);
+            maxFloat = new(FloatCase1);
+            maxString = new(StringCase1);
         }
 
         public static string GetString<T>(T[] testCase)
@@ -40,35 +49,32 @@ namespace GenericsProblems
         public static void IntTest()
         {
             Console.WriteLine("Test Case 1:" + GetString(IntCase1));
-            FindMaxNum.GetMaximum<int>(IntCase1[0], IntCase1[1], IntCase1[2]);
+            maxInt.GetMaximum(IntCase1[0], IntCase1[1], IntCase1[2]);
             Console.WriteLine("Test Case 2:" + GetString(IntCase2));
-            FindMaxNum.GetMaximum<int>(IntCase2[0], IntCase2[1], IntCase2[2]);
+            maxInt.GetMaximum(IntCase2[0], IntCase2[1], IntCase2[2]);
             Console.WriteLine("Test Case 3:" + GetString(IntCase3));
-            FindMaxNum.GetMaximum<int>(IntCase3[0], IntCase3[1], IntCase3[2]);
-            Console.ReadKey();
+            maxInt.GetMaximum(IntCase3[0], IntCase3[1], IntCase3[2]);
         }
 
         public static void FloatTest()
         {
             Console.WriteLine("Test Case 1:" + GetString(FloatCase1));
-            FindMaxNum.GetMaximum<float>(FloatCase1[0], FloatCase1[1], FloatCase1[2]);
+            maxFloat.GetMaximum(FloatCase1[0], FloatCase1[1], FloatCase1[2]);
             Console.WriteLine("Test Case 2:" + GetString(FloatCase2));
-            FindMaxNum.GetMaximum<float>(FloatCase2[0], FloatCase2[1], FloatCase2[2]);
+            maxFloat.GetMaximum(FloatCase2[0], FloatCase2[1], FloatCase2[2]);
             Console.WriteLine("Test Case 3:" + GetString(FloatCase3));
-            FindMaxNum.GetMaximum<float>(FloatCase3[0], FloatCase3[1], FloatCase3[2]);
-            Console.ReadKey();
+            maxFloat.GetMaximum(FloatCase3[0], FloatCase3[1], FloatCase3[2]);
 
         }
 
         public static void StringTest()
         {
             Console.WriteLine("Test Case 1:" + GetString(StringCase1));
-            FindMaxNum.GetMaximum<string>(StringCase1[0], StringCase1[1], StringCase1[2]);
+            maxString.GetMaximum(StringCase1[0], StringCase1[1], StringCase1[2]);
             Console.WriteLine("Test Case 2:" + GetString(StringCase2));
-            FindMaxNum.GetMaximum<string>(StringCase2[0], StringCase2[1], StringCase2[2]);
+            maxString.GetMaximum(StringCase2[0], StringCase2[1], StringCase2[2]);
             Console.WriteLine("Test Case 3:" + GetString(StringCase3));
-            FindMaxNum.GetMaximum<string>(StringCase3[0], StringCase3[1], StringCase3[2]);
-            Console.ReadKey();
+            maxString.GetMaximum(StringCase3[0], StringCase3[1], StringCase3[2]);
         }
 
     }

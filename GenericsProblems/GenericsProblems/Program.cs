@@ -33,10 +33,13 @@ namespace GenericsProblems
     }
 }
 
-//Refactor-1
-//Refactor all the 3 to One Generic Method and find the maximum
+//Refactor-2
+//Refactor to create Generic Class to take in 3 variables of Generic Type
+
 //- Ensure the Generic Type extends Comparable
-//Make the test case work
+//- Write parameter constructor
+//- Write testMaximum method to internally call the static testMaximum method passing the 3 instance variables
+//- Define new test case to use the Generic Class
 
 //Result
 
@@ -53,7 +56,7 @@ namespace GenericsProblems
 //Max value is: 50
 //Test Case 3:[50, 30, 20]
 //Max value is: 50
-//---------------------------------------------------
+//--------------------------------------------
 //Please Choose The Option Can Be Executed:
 //Find the Max Value Out Of Three:
 //1.Integers
@@ -67,7 +70,7 @@ namespace GenericsProblems
 //Max value is: 9.6
 //Test Case 3:[5.6, 10.5, 2.6]
 //Max value is: 10.5
-//----------------------------------------------------
+//-----------------------------------------------
 //Please Choose The Option Can Be Executed:
 //Find the Max Value Out Of Three:
 //1.Integers
@@ -81,3 +84,4 @@ namespace GenericsProblems
 //Max value is: Scale
 //Test Case 3:[Shravani, Raksha, Punya]
 //Max value is: Shravani
+//-----------------------------------------------
