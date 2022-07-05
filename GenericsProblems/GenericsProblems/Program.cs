@@ -7,39 +7,78 @@ namespace GenericsProblems
         public static void Main(string[] args)
         {
             Console.WriteLine("Please Choose The Option Can Be Executed: ");
-            Console.WriteLine("Find the Max Value Out Of Three: \n1.Integers \n2.Float \n3.String \n4.Exit");
+            Console.WriteLine("Find the Max Value Out Of Three: \n1.Integers \n2.Float \n3.String \n4.Generic Method \n5.Exit");
             Console.Write("Enter the selected Option: ");
             int option = Convert.ToInt32(Console.ReadLine());
+            FindMaxNum findMaxNum = new FindMaxNum();
 
             switch (option)
             {
                 case 1:
-                    TestCases.IntTest();
-                    break;
+                    Console.WriteLine("For Determining Max of Integer: ");
+                    Console.WriteLine("Enter the First Number: ");
+                    int first_Number = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the Second Number: ");
+                    int second_Number = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the Third Number: ");
+                    int third_Number = Convert.ToInt32(Console.ReadLine());
 
+                    if (findMaxNum.GetMaximumInteger(first_Number, second_Number, third_Number) != 0)
+                        Console.WriteLine("{0} is Maximum out of {1} ,{2}, {3}", findMaxNum.GetMaximumInteger(first_Number, second_Number, third_Number), first_Number, second_Number, third_Number);
+
+                    break;
                 case 2:
-                    TestCases.FloatTest();
-                    break;
+                    Console.WriteLine("For Determining Max of Float: ");
+                    Console.WriteLine("Enter the First Number: ");
+                    double first_Num = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter the Second Number: ");
+                    double second_Num = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter the Third Number: ");
+                    double third_Num = double.Parse(Console.ReadLine());
 
+                    if (findMaxNum.GetMaximumFloat(first_Num, second_Num, third_Num) != 0.0)
+                        Console.WriteLine("{0} is Maximum out of {1} ,{2}, {3}", findMaxNum.GetMaximumFloat(first_Num, second_Num, third_Num), first_Num, second_Num, third_Num);
+                    break;
                 case 3:
-                    TestCases.StringTest();
+                    Console.WriteLine("For Determining Max of String: ");
+                    Console.WriteLine("Enter the First String: ");
+                    string first_String = Console.ReadLine();
+                    Console.WriteLine("Enter the Second String: ");
+                    string second_String = Console.ReadLine();
+                    Console.WriteLine("Enter the Third String: ");
+                    string third_String = Console.ReadLine();
+
+                    if (findMaxNum.GetMaximumstring(first_String, second_String, third_String) != null)
+                        Console.WriteLine("{0} is Maximum out of {1} ,{2}, {3}", findMaxNum.GetMaximumstring(first_String, second_String, third_String), first_String, second_String, third_String);
                     break;
-                default:
-                    Console.WriteLine("Invlid Choice");
+                case 4:
+                    Console.WriteLine("For Determining Max Generic Method: ");
+                     
+                    int maxInt = FindMaxNum.GetMaximum<int>(1, 2, 3);
+                    double maxFloat = FindMaxNum.GetMaximum<double>(1.1f, 9.4f, 5.7f);
+                    string maxString = FindMaxNum.GetMaximum<string>("Apple", "Peach", "Banana");
+
+                    Console.WriteLine(maxInt);
+                    Console.WriteLine(maxFloat);
+                    Console.WriteLine(maxString);
+
+                    Console.ReadKey();
                     break;
 
+                default:
+                    break;
             }
+            Console.ReadLine();
+
         }
     }
+
 }
 
-//Refactor-2
-//Refactor to create Generic Class to take in 3 variables of Generic Type
-
+//UC-4
+//Refactor all the 3 to One Generic Method and find the maximum
 //- Ensure the Generic Type extends Comparable
-//- Write parameter constructor
-//- Write testMaximum method to internally call the static testMaximum method passing the 3 instance variables
-//- Define new test case to use the Generic Class
+//- Make the test case work
 
 //Result
 
@@ -48,40 +87,10 @@ namespace GenericsProblems
 //1.Integers
 //2.Float
 //3.String
-//4.Exit
-//Enter the selected Option: 1
-//Test Case 1:[8, 10, 2]
-//Max value is: 10
-//Test Case 2:[2, 40, 50]
-//Max value is: 50
-//Test Case 3:[50, 30, 20]
-//Max value is: 50
-//--------------------------------------------
-//Please Choose The Option Can Be Executed:
-//Find the Max Value Out Of Three:
-//1.Integers
-//2.Float
-//3.String
-//4.Exit
-//Enter the selected Option: 2
-//Test Case 1:[2.5, 3.8, 4.5]
-//Max value is: 4.5
-//Test Case 2:[9.6, 5.5, 2.8]
-//Max value is: 9.6
-//Test Case 3:[5.6, 10.5, 2.6]
-//Max value is: 10.5
-//-----------------------------------------------
-//Please Choose The Option Can Be Executed:
-//Find the Max Value Out Of Three:
-//1.Integers
-//2.Float
-//3.String
-//4.Exit
-//Enter the selected Option: 3
-//Test Case 1:[Shivaraj, Arun, Deepak]
-//Max value is: Shivaraj
-//Test Case 2:[Pen, Scale, Eraser]
-//Max value is: Scale
-//Test Case 3:[Shravani, Raksha, Punya]
-//Max value is: Shravani
-//-----------------------------------------------
+//4.Generic Method
+//5.Exit
+//Enter the selected Option: 4
+//For Determining Max Generic Method:
+//3
+//9.399999618530273
+//Peach
